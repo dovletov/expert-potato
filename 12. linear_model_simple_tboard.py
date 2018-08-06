@@ -47,7 +47,7 @@ with tf.Session(config=config) as sess:
     for i in range(1000):
         sess.run(train, {x: x_train, y: y_train})
 
-        # evaluate training accuracy
+        # evaluation
         if (i+1)%10==0:
             curr_W, curr_b, curr_loss, tr_sum, g_step = sess.run([W, b, loss, training_summary, global_step], {x: x_train, y: y_train})
             print("Step: %s  W: %s b: %s loss: %s"%(str(i).zfill(3), curr_W, curr_b, curr_loss))
