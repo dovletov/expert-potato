@@ -1,3 +1,7 @@
+# Strange 'performance' summary is based on 
+# https://github.com/thushv89/datacamp_tutorials/tree/master/tensorboard_tutorial
+# ===============================================================================
+
 import os
 import tensorflow as tf
 

@@ -1,6 +1,3 @@
-# based on https://www.tensorflow.org/versions/r1.4/get_started/mnist/pros
-# ===============================================================================
-
 import os
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -76,9 +73,10 @@ with tf.name_scope('performance'):
     # Create a scalar summary objects for the loss/acc so it can be displayed
     tf_loss_summary = tf.summary.scalar('loss', tf_loss_ph)
     tf_accuracy_summary = tf.summary.scalar('accuracy', tf_accuracy_ph)
+    tf_image_summary = tf.summary.image('images', tf.reshape(x, [-1, 28, 28, 1]), 10)
 
     # Merge all summaries together
-    performance_summaries = tf.summary.merge([tf_loss_summary,tf_accuracy_summary])
+    performance_summaries = tf.summary.merge_all()
 
 initializer = tf.global_variables_initializer()
 
@@ -86,8 +84,8 @@ with tf.Session(config=config) as sess:
     sess.run(initializer)
   
     # op to write logs to Tensorboard
-    writer_1 = tf.summary.FileWriter("./logs/15/tr", graph=tf.get_default_graph())
-    writer_2 = tf.summary.FileWriter("./logs/15/vl", graph=tf.get_default_graph())
+    writer_1 = tf.summary.FileWriter("./logs/16/tr", graph=tf.get_default_graph())
+    writer_2 = tf.summary.FileWriter("./logs/16/vl")
 
     # training loop
     for step_id in range(20000):

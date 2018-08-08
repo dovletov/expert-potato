@@ -1,3 +1,6 @@
+# based on https://github.com/tensorflow/tensorflow/issues/7089
+# ===============================================================================
+
 import os
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -50,7 +53,7 @@ with tf.Session(config=config) as sess:
 
     # op to write logs to Tensorboard
     writer_1 = tf.summary.FileWriter("./logs/14/tr", graph=tf.get_default_graph())
-    writer_2 = tf.summary.FileWriter("./logs/14/vl", graph=tf.get_default_graph())
+    writer_2 = tf.summary.FileWriter("./logs/14/vl")
 
     # training loop
     for step_id in range(1000):
