@@ -1,12 +1,12 @@
 import os
 import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
 
 os.environ["CUDA_VISIBLE_DEVICES"] = '3'
 
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 
-from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 # placeholders
@@ -34,7 +34,7 @@ with tf.name_scope('performance'):
     # Summaries need to be displayed. Whenever you need to record the loss/acc,
     # feed the values to these placeholders.
     tf_loss_ph = tf.placeholder(tf.float32, shape=None, name='loss_summary')
-    tf_accuracy_ph = tf.placeholder(tf.float32,shape=None, name='accuracy_summary')
+    tf_accuracy_ph = tf.placeholder(tf.float32, shape=None, name='accuracy_summary')
     
     # Create a scalar summary objects for the loss/acc so it can be displayed
     tf_loss_summary = tf.summary.scalar('loss', tf_loss_ph)

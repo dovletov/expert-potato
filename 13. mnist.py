@@ -38,7 +38,7 @@ with tf.name_scope('performance'):
     tf_loss_summary = tf.summary.scalar('loss', tf_loss_ph)
 
     # Whenever you need to record the loss, feed the mean test accuracy to this placeholder
-    tf_accuracy_ph = tf.placeholder(tf.float32,shape=None, name='accuracy_summary')
+    tf_accuracy_ph = tf.placeholder(tf.float32, shape=None, name='accuracy_summary')
     # Create a scalar summary object for the accuracy so it can be displayed
     tf_accuracy_summary = tf.summary.scalar('accuracy', tf_accuracy_ph)
 
