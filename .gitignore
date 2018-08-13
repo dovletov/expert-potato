@@ -1,5 +1,7 @@
 # exclude everything
 logs/*
+checkpoints/*
 
 # exception to the rule
 !logs/.gitkeep
+!checkpoints/.gitkeep
